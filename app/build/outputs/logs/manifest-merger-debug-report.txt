@@ -1,0 +1,167 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/8a9337ea0d4c9c8f7d529a66ca875926/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.3.1] /home/come/.gradle/caches/transforms-2/files-2.1/8d046e81dc480c027e4a6827d9e0d6e2/jetified-core-ktx-1.3.1/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/come/.gradle/caches/transforms-2/files-2.1/c1965fb2b771149144e8500f16640837/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-SNAPSHOT] /home/come/.gradle/caches/transforms-2/files-2.1/fda64129b6b84bbcd1f3a20da0dce3e3/jetified-hilt-lifecycle-viewmodel-1.0.0-SNAPSHOT/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.hilt:hilt-common:1.0.0-SNAPSHOT] /home/come/.gradle/caches/transforms-2/files-2.1/940b0346abedb6a5d22c52ccc5ddbf6d/jetified-hilt-common-1.0.0-SNAPSHOT/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.dagger:hilt-android:2.28-alpha] /home/come/.gradle/caches/transforms-2/files-2.1/1e76a98863bd66222efedba2636cf336/jetified-hilt-android-2.28-alpha/AndroidManifest.xml:16:1-19:12
+MERGED from [androidx.fragment:fragment:1.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/4b5508fcd169318412f668d2241283c5/fragment-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/1e1c9b7952c1512bc6e1f4ff4460ac8d/jetified-activity-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/ad57492f4e31d40d295c9cc27070bb78/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.loader:loader:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/5989b591530ff359c28e103e8f4d660b/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/442b05942d4d1cf0ea727b8d7e1707ad/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/1387baf9b088090d3161d19b1800df5b/lifecycle-livedata-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/4b9ede9641e9a60b08d626352da4447d/jetified-rxandroid-3.0.0/AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/8d68f3ac09da9e049b43eaf44a8d4fc9/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/ebbeb546d20f83dcaa595ce9030643ba/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/6ce15acaf3b5f891377f10f38f2ec329/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/a26fdf65ee153401683830ddec701b5e/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/2251dbe5897c80ee92181106987dcf4b/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/47df288ce94a55d86b52f8b7f0f740e6/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/797ad9a535076950676a21d2eba5753c/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.3.1] /home/come/.gradle/caches/transforms-2/files-2.1/6c829a85c21548726da52c3780d3e0d3/core-1.3.1/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/4d535fea30af4c3969cff00303d58520/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/43f0c8b15bdc0df43247aa15d8d15383/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/638324090179d3b395a31ade4d472786/lifecycle-runtime-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/dd288f620d160dd9578905a1516ae0a6/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/d1461af1902bc87d3fb58a3f49223030/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/0f0932037200c9bcb7ec344366fd928b/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:dagger-lint-aar:2.28] /home/come/.gradle/caches/transforms-2/files-2.1/32d5271dfda01c70b4dfaf3c25584807/jetified-dagger-lint-aar-2.28/AndroidManifest.xml:16:1-18:12
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12
+	package
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:3:5-37
+		INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+		INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12
+		INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12
+		INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:5:22-64
+application
+ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:7:5-22:19
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/come/.gradle/caches/transforms-2/files-2.1/c1965fb2b771149144e8500f16640837/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/come/.gradle/caches/transforms-2/files-2.1/c1965fb2b771149144e8500f16640837/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.3.1] /home/come/.gradle/caches/transforms-2/files-2.1/6c829a85c21548726da52c3780d3e0d3/core-1.3.1/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] /home/come/.gradle/caches/transforms-2/files-2.1/6c829a85c21548726da52c3780d3e0d3/core-1.3.1/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/d1461af1902bc87d3fb58a3f49223030/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/d1461af1902bc87d3fb58a3f49223030/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.1] /home/come/.gradle/caches/transforms-2/files-2.1/6c829a85c21548726da52c3780d3e0d3/core-1.3.1/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:13:9-35
+	android:label
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:11:9-41
+	android:roundIcon
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:12:9-54
+	android:icon
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:10:9-43
+	android:allowBackup
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:14:9-40
+	android:name
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:8:9-28
+activity#com.torrentcome.lalala.ui.MainActivity
+ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:15:9-21:20
+	android:name
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:15:19-50
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:16:13-20:29
+action#android.intent.action.MAIN
+ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:17:17-69
+	android:name
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:17:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:19:17-77
+	android:name
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:19:27-74
+uses-sdk
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+MERGED from [androidx.appcompat:appcompat:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/8a9337ea0d4c9c8f7d529a66ca875926/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/8a9337ea0d4c9c8f7d529a66ca875926/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.3.1] /home/come/.gradle/caches/transforms-2/files-2.1/8d046e81dc480c027e4a6827d9e0d6e2/jetified-core-ktx-1.3.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.3.1] /home/come/.gradle/caches/transforms-2/files-2.1/8d046e81dc480c027e4a6827d9e0d6e2/jetified-core-ktx-1.3.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/come/.gradle/caches/transforms-2/files-2.1/c1965fb2b771149144e8500f16640837/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/come/.gradle/caches/transforms-2/files-2.1/c1965fb2b771149144e8500f16640837/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-SNAPSHOT] /home/come/.gradle/caches/transforms-2/files-2.1/fda64129b6b84bbcd1f3a20da0dce3e3/jetified-hilt-lifecycle-viewmodel-1.0.0-SNAPSHOT/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-SNAPSHOT] /home/come/.gradle/caches/transforms-2/files-2.1/fda64129b6b84bbcd1f3a20da0dce3e3/jetified-hilt-lifecycle-viewmodel-1.0.0-SNAPSHOT/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.hilt:hilt-common:1.0.0-SNAPSHOT] /home/come/.gradle/caches/transforms-2/files-2.1/940b0346abedb6a5d22c52ccc5ddbf6d/jetified-hilt-common-1.0.0-SNAPSHOT/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.hilt:hilt-common:1.0.0-SNAPSHOT] /home/come/.gradle/caches/transforms-2/files-2.1/940b0346abedb6a5d22c52ccc5ddbf6d/jetified-hilt-common-1.0.0-SNAPSHOT/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.dagger:hilt-android:2.28-alpha] /home/come/.gradle/caches/transforms-2/files-2.1/1e76a98863bd66222efedba2636cf336/jetified-hilt-android-2.28-alpha/AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:hilt-android:2.28-alpha] /home/come/.gradle/caches/transforms-2/files-2.1/1e76a98863bd66222efedba2636cf336/jetified-hilt-android-2.28-alpha/AndroidManifest.xml:18:3-42
+MERGED from [androidx.fragment:fragment:1.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/4b5508fcd169318412f668d2241283c5/fragment-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/4b5508fcd169318412f668d2241283c5/fragment-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/1e1c9b7952c1512bc6e1f4ff4460ac8d/jetified-activity-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/1e1c9b7952c1512bc6e1f4ff4460ac8d/jetified-activity-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/ad57492f4e31d40d295c9cc27070bb78/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/ad57492f4e31d40d295c9cc27070bb78/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/5989b591530ff359c28e103e8f4d660b/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/5989b591530ff359c28e103e8f4d660b/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/442b05942d4d1cf0ea727b8d7e1707ad/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/442b05942d4d1cf0ea727b8d7e1707ad/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/1387baf9b088090d3161d19b1800df5b/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/1387baf9b088090d3161d19b1800df5b/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/4b9ede9641e9a60b08d626352da4447d/jetified-rxandroid-3.0.0/AndroidManifest.xml:18:5-43
+MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/4b9ede9641e9a60b08d626352da4447d/jetified-rxandroid-3.0.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/8d68f3ac09da9e049b43eaf44a8d4fc9/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/8d68f3ac09da9e049b43eaf44a8d4fc9/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/ebbeb546d20f83dcaa595ce9030643ba/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/ebbeb546d20f83dcaa595ce9030643ba/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/6ce15acaf3b5f891377f10f38f2ec329/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/6ce15acaf3b5f891377f10f38f2ec329/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/a26fdf65ee153401683830ddec701b5e/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/a26fdf65ee153401683830ddec701b5e/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/2251dbe5897c80ee92181106987dcf4b/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/2251dbe5897c80ee92181106987dcf4b/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/47df288ce94a55d86b52f8b7f0f740e6/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/47df288ce94a55d86b52f8b7f0f740e6/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/797ad9a535076950676a21d2eba5753c/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/797ad9a535076950676a21d2eba5753c/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.3.1] /home/come/.gradle/caches/transforms-2/files-2.1/6c829a85c21548726da52c3780d3e0d3/core-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] /home/come/.gradle/caches/transforms-2/files-2.1/6c829a85c21548726da52c3780d3e0d3/core-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/4d535fea30af4c3969cff00303d58520/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/4d535fea30af4c3969cff00303d58520/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/43f0c8b15bdc0df43247aa15d8d15383/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/43f0c8b15bdc0df43247aa15d8d15383/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/638324090179d3b395a31ade4d472786/lifecycle-runtime-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /home/come/.gradle/caches/transforms-2/files-2.1/638324090179d3b395a31ade4d472786/lifecycle-runtime-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/dd288f620d160dd9578905a1516ae0a6/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/dd288f620d160dd9578905a1516ae0a6/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/d1461af1902bc87d3fb58a3f49223030/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/come/.gradle/caches/transforms-2/files-2.1/d1461af1902bc87d3fb58a3f49223030/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/0f0932037200c9bcb7ec344366fd928b/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/come/.gradle/caches/transforms-2/files-2.1/0f0932037200c9bcb7ec344366fd928b/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+		INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+		ADDED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+		INJECTED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12 reason: dagger.lint has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12 reason: dagger.lint has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /home/come/AndroidStudioProjects/Lalala/app/src/main/AndroidManifest.xml:2:1-24:12 reason: dagger.lint requested WRITE_EXTERNAL_STORAGE
