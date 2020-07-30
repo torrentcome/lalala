@@ -14,13 +14,19 @@ class App : Application() {
 
     override fun onCreate() {
 
-        // Enable strict mode before Dagger creates graph
-        enableStrictMode()
+        setUpStrictMode()
 
         super.onCreate()
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        setUpTheme()
+        setUpCalligraphy()
+    }
 
+    private fun setUpTheme() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+    }
+
+    private fun setUpCalligraphy() {
         ViewPump.init(
             ViewPump.builder()
                 .addInterceptor(
@@ -35,7 +41,7 @@ class App : Application() {
         )
     }
 
-    private fun enableStrictMode() {
+    private fun setUpStrictMode() {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads()

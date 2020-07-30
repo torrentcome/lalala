@@ -28,7 +28,7 @@ class GifListAdapter(private val listener: (Data) -> Unit) :
 
     inner class GifViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(gif: Data, listener: (Data) -> Unit) = with(itemView) {
-            title.text = "w = ${gif.images.original.width} h = ${gif.images.original.height}"
+            title.text = gif.images.original.url.hashCode().toString()
             Glide.with(this)
                 .load(gif.images.original.url)
                 .apply(RequestOptions().placeholder(R.drawable.place_holder))

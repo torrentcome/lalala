@@ -1,6 +1,7 @@
 package com.torrentcome.lalala.ui.search
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -15,6 +16,8 @@ import com.torrentcome.lalala.base.Empty
 import com.torrentcome.lalala.base.Fail
 import com.torrentcome.lalala.base.Loading
 import com.torrentcome.lalala.base.SuccessSearch
+import com.torrentcome.lalala.dto.Data
+import com.torrentcome.lalala.ui.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_search.*
@@ -35,7 +38,7 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
 
         viewModel.config()
 
-        val adapter = GifListAdapter { gif -> Log.i("list", "" + gif.images.original.url) }
+        val adapter = GifListAdapter { gif -> goToDetail(gif) }
 
         recycler_view.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
@@ -46,6 +49,7 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
                 viewModel.onEditInputStateChanged(edit.text.toString())
                 progressBar.visibility = View.VISIBLE
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
@@ -66,5 +70,15 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
                 }
             }
         })
+    }
+
+    private fun goToDetail(gif: Data) {
+        gif.images.original.url.let {
+            Log.i("list", "" + it)
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra("url", it)
+            Log.i("intent", "" + intent)
+            this.startActivity(intent)
+        }
     }
 }
