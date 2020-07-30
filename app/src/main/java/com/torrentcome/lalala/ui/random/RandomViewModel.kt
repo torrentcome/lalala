@@ -4,14 +4,17 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.torrentcome.lalala.base.Command
+import com.torrentcome.lalala.base.Fail
+import com.torrentcome.lalala.base.Loading
+import com.torrentcome.lalala.base.SuccessRandom
 import com.torrentcome.lalala.data.Repo
-import com.torrentcome.lalala.dto.Data
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 
-class MainViewModel @ViewModelInject constructor(private val repository: Repo) : ViewModel() {
+class RandomViewModel @ViewModelInject constructor(private val repository: Repo) : ViewModel() {
 
     // subscription
     private var disposable: CompositeDisposable? = CompositeDisposable()
@@ -45,9 +48,3 @@ class MainViewModel @ViewModelInject constructor(private val repository: Repo) :
         disposable = null
     }
 }
-
-open class Command
-class SuccessRandom(val url: String?) : Command()
-class SuccessSearch(val list: List<Data>?) : Command()
-object Loading : Command()
-object Fail : Command()

@@ -18,10 +18,10 @@ class ApiModule {
     @Singleton
     fun provideGiphyService(): GiphyService {
         return Builder()
-                .baseUrl(" https://api.giphy.com/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .build()
-                .create(GiphyService::class.java)
+            .baseUrl("https://api.giphy.com/v1/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .build()
+            .create(GiphyService::class.java)
     }
 }

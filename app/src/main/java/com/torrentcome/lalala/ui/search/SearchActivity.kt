@@ -1,4 +1,4 @@
-package com.torrentcome.lalala.ui
+package com.torrentcome.lalala.ui.search
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,10 +8,14 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.torrentcome.lalala.R
+import com.torrentcome.lalala.base.Empty
+import com.torrentcome.lalala.base.Fail
+import com.torrentcome.lalala.base.Loading
+import com.torrentcome.lalala.base.SuccessSearch
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_search.*
-import kotlinx.android.synthetic.main.activity_search.progressBar
 import kotlinx.android.synthetic.main.include_error_view.*
 
 
@@ -24,9 +28,16 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
         super.onCreate(savedInstanceState)
 
         viewModel.config()
+
+        val adapter = GifListAdapter { gif -> Log.i("list", "" + gif.images.original.url) }
+        recycler_view.layoutManager =
+            StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+        recycler_view.adapter = adapter
+
         edit.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable) {
                 viewModel.onEditInputStateChanged(edit.text.toString())
+                progressBar.visibility = View.VISIBLE
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -36,14 +47,17 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
         viewModel.searchO.observe(this, Observer {
             when (it) {
                 is SuccessSearch -> {
-                    
+                    adapter.list = it.list!!
+                    progressBar.visibility = View.GONE
                 }
                 is Fail -> {
                     error.visibility = View.VISIBLE
                     progressBar.visibility = View.GONE
                 }
                 is Loading -> {
-                    progressBar.visibility = View.VISIBLE
+                }
+                is Empty -> {
+
                 }
             }
         })

@@ -4,11 +4,14 @@ import com.torrentcome.lalala.api.GiphyService
 import javax.inject.Inject
 import javax.inject.Singleton
 
+const val API_KEY = "zIMaCOfVT6KGmPeOb0LBvkFPiPDLhGc6"
+
 @Singleton
 class Repo @Inject constructor(var giphyService: GiphyService) {
-    fun ok(): String = "show up"
 
-    fun random() = giphyService.random()
+    fun random() =
+        giphyService.random()
 
-    fun search(text: String) = giphyService.search(text)
+    fun search(query: String) =
+        giphyService.search(API_KEY, query, 25, 0, "g", "en")
 }

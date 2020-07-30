@@ -14,23 +14,21 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.torrentcome.lalala.R
-import com.torrentcome.lalala.ui.random.Fail
-import com.torrentcome.lalala.ui.random.Loading
-import com.torrentcome.lalala.ui.random.MainViewModel
-import com.torrentcome.lalala.ui.random.SuccessRandom
+import com.torrentcome.lalala.base.Fail
+import com.torrentcome.lalala.base.Loading
+import com.torrentcome.lalala.base.SuccessRandom
 import com.torrentcome.lalala.ui.search.SearchActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_random.*
 import kotlinx.android.synthetic.main.include_error_view.*
 
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    private val viewModel: MainViewModel by viewModels()
+class RandomActivity : AppCompatActivity(R.layout.activity_random) {
+    private val viewModel: RandomViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         viewModel.getRandom()
         viewModel.randomO.observe(this, Observer {

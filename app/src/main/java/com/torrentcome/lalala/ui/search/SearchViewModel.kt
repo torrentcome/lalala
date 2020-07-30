@@ -1,4 +1,4 @@
-package com.torrentcome.lalala.ui
+package com.torrentcome.lalala.ui.search
 
 import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jakewharton.rxrelay3.PublishRelay
+import com.torrentcome.lalala.base.*
 import com.torrentcome.lalala.data.Repo
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -43,7 +44,8 @@ class SearchViewModel @ViewModelInject constructor(private val repository: Repo)
             .subscribe { wrapper ->
                 Log.e("search", "" + wrapper.toString())
                 wrapper?.data?.let {
-                    _search.value = SuccessSearch(it)
+                    if (it.isEmpty()) _search.value = Empty
+                    else _search.value = SuccessSearch(it)
                 }
             }
     }
