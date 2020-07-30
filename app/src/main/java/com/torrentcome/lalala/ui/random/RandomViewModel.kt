@@ -17,7 +17,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class RandomViewModel @ViewModelInject constructor(private val repository: Repo) : ViewModel() {
 
     // subscription
-    private var disposable: CompositeDisposable? = CompositeDisposable()
+    private val disposables by lazy { CompositeDisposable() }
 
     // mutable var
     private val _random = MutableLiveData<Command?>()
@@ -25,26 +25,22 @@ class RandomViewModel @ViewModelInject constructor(private val repository: Repo)
     // visible var
     val randomO: LiveData<Command?> = _random
 
-    fun getRandom() = disposable?.add(repository.random()
+    fun getRandom() = disposables.add(repository.random()
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
-        .doOnSubscribe {
-            _random.value = Loading
-        }
+        .doOnSubscribe { _random.value = Loading }
         .doOnError {
             it.printStackTrace()
             _random.value = Fail
         }
         .subscribe { wrapper ->
             wrapper?.data?.images?.original?.url.let {
-                _random.value =
-                    SuccessRandom(it)
+                _random.value = SuccessRandom(it)
             }
         })
 
     override fun onCleared() {
         super.onCleared()
-        disposable?.clear()
-        disposable = null
+        disposables.clear()
     }
 }

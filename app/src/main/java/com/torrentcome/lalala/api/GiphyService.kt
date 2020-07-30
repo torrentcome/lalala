@@ -26,5 +26,4 @@ interface GiphyService {
         @Query("rating") rating: String,
         @Query("lang") lang: String
     ): Observable<SearchObj?>
-
 }

@@ -7,7 +7,7 @@ import javax.inject.Singleton
 const val API_KEY = "zIMaCOfVT6KGmPeOb0LBvkFPiPDLhGc6"
 
 @Singleton
-class Repo @Inject constructor(var giphyService: GiphyService) {
+class Repo @Inject constructor(private var giphyService: GiphyService) {
 
     fun random() =
         giphyService.random()

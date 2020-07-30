@@ -48,10 +48,11 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.fragment:fragment-ktx:1.2.5'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     // hilt
     implementation 'com.google.dagger:hilt-android:2.28-alpha'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     kapt 'com.google.dagger:hilt-android-compiler:2.28-alpha'
     implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-SNAPSHOT'
     kapt 'androidx.hilt:hilt-compiler:1.0.0-SNAPSHOT'
@@ -62,7 +63,6 @@ dependencies {
     //rx edit text
     implementation 'com.jakewharton.rxrelay3:rxrelay:3.0.0'
 
-
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -71,6 +71,10 @@ dependencies {
     // glide
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
+    //calligraphy
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
 
     // test
     testImplementation 'junit:junit:4.12'

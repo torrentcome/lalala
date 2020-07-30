@@ -1,5 +1,6 @@
 package com.torrentcome.lalala.ui.search
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -15,12 +16,17 @@ import com.torrentcome.lalala.base.Fail
 import com.torrentcome.lalala.base.Loading
 import com.torrentcome.lalala.base.SuccessSearch
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.include_error_view.*
 
 
 @AndroidEntryPoint
 class SearchActivity : AppCompatActivity(R.layout.activity_search) {
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
+    }
 
     private val viewModel: SearchViewModel by viewModels()
 
@@ -30,8 +36,9 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
         viewModel.config()
 
         val adapter = GifListAdapter { gif -> Log.i("list", "" + gif.images.original.url) }
+
         recycler_view.layoutManager =
-            StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recycler_view.adapter = adapter
 
         edit.addTextChangedListener(object : TextWatcher {
@@ -39,7 +46,6 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
                 viewModel.onEditInputStateChanged(edit.text.toString())
                 progressBar.visibility = View.VISIBLE
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
@@ -57,10 +63,8 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
                 is Loading -> {
                 }
                 is Empty -> {
-
                 }
             }
         })
-
     }
 }

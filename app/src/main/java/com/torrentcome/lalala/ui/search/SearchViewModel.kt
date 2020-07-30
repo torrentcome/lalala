@@ -17,8 +17,8 @@ import java.util.concurrent.TimeUnit
 class SearchViewModel @ViewModelInject constructor(private val repository: Repo) : ViewModel() {
 
     // subscription
-    private var disposable: CompositeDisposable? = CompositeDisposable()
-    private val completePublishSubject = PublishRelay.create<String>()
+    private val disposables by lazy { CompositeDisposable() }
+    private val completePublishSubject by lazy { PublishRelay.create<String>() }
 
     // mutable var
     private val _search = MutableLiveData<Command?>()
@@ -33,7 +33,7 @@ class SearchViewModel @ViewModelInject constructor(private val repository: Repo)
     }
 
     fun config() {
-        completePublishSubject
+        disposables.add(completePublishSubject
             .debounce(400, TimeUnit.MILLISECONDS)
             .distinctUntilChanged()
             .switchMap { repository.search(it) }
@@ -47,13 +47,11 @@ class SearchViewModel @ViewModelInject constructor(private val repository: Repo)
                     if (it.isEmpty()) _search.value = Empty
                     else _search.value = SuccessSearch(it)
                 }
-            }
+            })
     }
 
     override fun onCleared() {
         super.onCleared()
-        disposable?.clear()
-        disposable = null
+        disposables.clear()
     }
-
 }
