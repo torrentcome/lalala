@@ -40,6 +40,7 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recycler_view.adapter = adapter
 
+        edit.requestFocus()
         edit.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable) {
                 viewModel.onEditInputStateChanged(edit.text.toString())

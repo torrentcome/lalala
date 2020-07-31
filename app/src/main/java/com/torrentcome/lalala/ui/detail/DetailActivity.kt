@@ -43,7 +43,7 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
                     val shareIntent = Intent(Intent.ACTION_SEND)
                     shareIntent.type = "text/plain"
                     shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Lalala Share")
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, "url = " + url)
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, "" + url)
                     startActivity(Intent.createChooser(shareIntent, "choose one"))
                 }
                 return super.onSwipe(direction)
