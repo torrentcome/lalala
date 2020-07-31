@@ -14,7 +14,7 @@ class RandomViewModel @ViewModelInject constructor(private val repository: Repo)
     sealed class Command {
         object Start : Command()
         object Loading : Command()
-        object Fail : Command()
+        data class Fail(val message: String = "") : Command()
         data class Success(val url: String = "") : Command()
     }
 
@@ -36,15 +36,14 @@ class RandomViewModel @ViewModelInject constructor(private val repository: Repo)
         .subscribeOn(Schedulers.io())
         .observeOn(Schedulers.io())
         .doOnSubscribe { _random.postValue(Command.Loading) }
-        .doOnError {
-            it.printStackTrace()
-            _random.postValue(Command.Fail)
-        }
-        .subscribe { wrapper ->
+        .subscribe({ wrapper ->
             wrapper?.data?.images?.original?.url?.let {
                 _random.postValue(Command.Success(it))
             }
+        }, {
+            _random.postValue(Command.Fail(it.message.toString()))
         })
+    )
 
     override fun onCleared() {
         super.onCleared()

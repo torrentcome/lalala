@@ -34,7 +34,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="24dp"
-        android:text="@string/click_here_to_continue"
-        android:visibility="gone" />
+        android:text="@string/click_here_to_continue" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/include_error_view" />
 
 </RelativeLayout>

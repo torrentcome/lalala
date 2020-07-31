@@ -3,7 +3,6 @@ package com.torrentcome.lalala.api
 import com.torrentcome.lalala.dto.RandomObj
 import com.torrentcome.lalala.dto.SearchObj
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -16,7 +15,7 @@ import retrofit2.http.Query
 interface GiphyService {
 
     @GET("gifs/random?api_key=zIMaCOfVT6KGmPeOb0LBvkFPiPDLhGc6&tag=&rating=g")
-    fun random(): Single<RandomObj?>
+    fun random(): Observable<RandomObj?>
 
     @GET("gifs/search")
     fun search(

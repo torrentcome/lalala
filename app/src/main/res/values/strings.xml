@@ -6,4 +6,7 @@
 
     <string name="click_here_to_continue">CLick here to continue</string>
     <string name="type_search_here">type search here</string>
+
+    <string name="swipeup">Swipe Up</string>
+
 </resources>

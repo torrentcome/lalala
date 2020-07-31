@@ -12,13 +12,15 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(ApplicationComponent::class)
-class ApiModule {
+object ApiModule {
 
     @Provides
     @Singleton
     fun provideGiphyService(): GiphyService {
         return Builder()
-            .baseUrl("https://api.giphy.com/v1/")
+            .baseUrl(
+                "https://api.giphy.com/v1/"
+            )
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()

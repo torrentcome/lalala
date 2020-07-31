@@ -1,8 +1,10 @@
 package com.torrentcome.lalala.ui.detail
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import com.bumptech.glide.Glide
@@ -15,8 +17,9 @@ import kotlinx.android.synthetic.main.activity_detail.*
 
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
-    var gestureDetectorCompat: GestureDetectorCompat? = null
+    private var gestureDetectorCompat: GestureDetectorCompat? = null
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,17 +29,21 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
             gestureDetectorCompat?.onTouchEvent(p1)!!
         }
 
+        val bounceAnimation = AnimationUtils.loadAnimation(this, R.anim.bounce)
+        swipeup.startAnimation(bounceAnimation)
+
         gestureDetectorCompat = GestureDetectorCompat(this, object : OnSwipeListener() {
             override fun onSwipe(direction: Direction?): Boolean {
-                if (direction == Direction.left) {
+
+                if (direction == Direction.right) {
                     onBackPressed()
                 }
+
                 if (direction == Direction.up) {
                     val shareIntent = Intent(Intent.ACTION_SEND)
                     shareIntent.type = "text/plain"
-                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Lalala share")
-                    val shareMessage = "\nLet me recommend you this gify\n"
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Lalala Share")
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, "url = " + url)
                     startActivity(Intent.createChooser(shareIntent, "choose one"))
                 }
                 return super.onSwipe(direction)

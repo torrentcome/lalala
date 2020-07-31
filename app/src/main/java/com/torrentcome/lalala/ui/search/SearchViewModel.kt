@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import com.jakewharton.rxrelay3.PublishRelay
 import com.torrentcome.lalala.data.Repo
 import com.torrentcome.lalala.dto.Data
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
@@ -18,7 +17,7 @@ class SearchViewModel @ViewModelInject constructor(private val repository: Repo)
 
     sealed class Command {
         object Loading : Command()
-        object Fail : Command()
+        class Fail(val message: String) : Command()
         object Empty : Command()
         data class Success(val list: List<Data> = emptyList()) : Command()
     }
@@ -43,18 +42,21 @@ class SearchViewModel @ViewModelInject constructor(private val repository: Repo)
         disposables.add(completePublishSubject
             .debounce(400, TimeUnit.MILLISECONDS)
             .distinctUntilChanged()
-            .switchMap { repository.search(it) }
+            .switchMap {
+                repository.search(it).doOnSubscribe { _search.postValue(Command.Loading) }
+            }
             .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { _search.value = Command.Loading }
-            .doOnError { _search.value = Command.Fail }
-            .subscribe { wrapper ->
+            .observeOn(Schedulers.io())
+            .subscribe({ wrapper ->
                 Log.e("search", "" + wrapper.toString())
                 wrapper?.data?.let {
-                    if (it.isEmpty()) _search.value = Command.Empty
-                    else _search.value = Command.Success(it)
+                    if (it.isEmpty()) _search.postValue(Command.Empty)
+                    else _search.postValue(Command.Success(it))
                 }
+            }, {
+                _search.postValue(Command.Fail(it.message.toString()))
             })
+        )
     }
 
     override fun onCleared() {

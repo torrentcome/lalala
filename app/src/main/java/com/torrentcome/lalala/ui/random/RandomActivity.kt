@@ -49,17 +49,23 @@ class RandomActivity : AppCompatActivity(R.layout.activity_random) {
                         .into(imageView)
                 }
                 is RandomViewModel.Command.Fail -> {
+
                     error.visibility = View.VISIBLE
+                    error_message.text = it.message
+
                     progressBar.visibility = View.GONE
                 }
                 is RandomViewModel.Command.Loading -> {
                     progressBar.visibility = View.VISIBLE
+                }
+                else -> {
                 }
             }
         })
 
         button.setOnClickListener {
             goToSearchActivity()
+            finish()
         }
     }
 

@@ -43,7 +43,6 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
         edit.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable) {
                 viewModel.onEditInputStateChanged(edit.text.toString())
-                progressBar.visibility = View.VISIBLE
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -57,12 +56,17 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
                     progressBar.visibility = View.GONE
                 }
                 is SearchViewModel.Command.Fail -> {
+
                     error.visibility = View.VISIBLE
+                    error_message.text = it.message
+
                     progressBar.visibility = View.GONE
                 }
                 is SearchViewModel.Command.Loading -> {
+                    progressBar.visibility = View.VISIBLE
                 }
                 is SearchViewModel.Command.Empty -> {
+                    progressBar.visibility = View.GONE
                 }
             }
         })

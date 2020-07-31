@@ -2,16 +2,14 @@ package com.torrentcome.lalala
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth
-import com.torrentcome.lalala.api.GiphyService
 import com.torrentcome.lalala.base.RxSchedulerRule
 import com.torrentcome.lalala.base.testObserver
 import com.torrentcome.lalala.data.Repo
+import com.torrentcome.lalala.di.ApiModule
 import com.torrentcome.lalala.ui.random.RandomViewModel
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.InjectMocks
-import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnit
 import org.mockito.junit.MockitoRule
@@ -28,21 +26,15 @@ class RandomViewModelTest {
     @get:Rule
     val rxSchedulerRule = RxSchedulerRule()
 
-    @Mock
-    private lateinit var giphyService: GiphyService
-
-    @Mock
-    private lateinit var repo: Repo
-
-    @InjectMocks
     private lateinit var classUnderTest: RandomViewModel
 
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        repo = Repo(giphyService)
+        val giphyService = ApiModule.provideGiphyService()
+        val repo = Repo(giphyService)
+        classUnderTest = RandomViewModel(repo)
     }
-
 
     @Test
     fun `when Init then Command is Start`() {
@@ -54,18 +46,25 @@ class RandomViewModelTest {
     @Test
     fun `when Request then Command pass by Start, Loading, Success`() {
         val commandList = classUnderTest.randomO.testObserver()
-
         classUnderTest.getRandom()
-
-        Truth.assert_()
-            .that(commandList.observedValues)
-            .isEqualTo(
-                listOf(
-                    RandomViewModel.Command.Start,
-                    RandomViewModel.Command.Loading,
-                    RandomViewModel.Command.Success()
-                )
-            )
+        val that = commandList.observedValues
+        Truth.assert_().that(that[0] is RandomViewModel.Command.Start).isTrue()
+        Truth.assert_().that(that[1] is RandomViewModel.Command.Loading).isTrue()
+        Truth.assert_().that(that[2] is RandomViewModel.Command.Success).isTrue()
     }
 
+    @Test
+    fun `when Request then Success url is not empty`() {
+        val commandList = classUnderTest.randomO.testObserver()
+        classUnderTest.getRandom()
+        val that = commandList.observedValues
+        Truth.assert_().that((that[2] as RandomViewModel.Command.Success).url.isNotEmpty()).isTrue()
+    }
+
+    @Test
+    fun `when Request then Error`() {
+        val commandList = classUnderTest.randomO.testObserver()
+        classUnderTest.getRandom()
+        Truth.assert_().fail()
+    }
 }
