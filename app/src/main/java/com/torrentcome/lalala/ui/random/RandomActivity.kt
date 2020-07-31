@@ -16,9 +16,6 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.torrentcome.lalala.R
-import com.torrentcome.lalala.base.Fail
-import com.torrentcome.lalala.base.Loading
-import com.torrentcome.lalala.base.SuccessRandom
 import com.torrentcome.lalala.ui.search.SearchActivity
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
@@ -40,7 +37,7 @@ class RandomActivity : AppCompatActivity(R.layout.activity_random) {
         viewModel.getRandom()
         viewModel.randomO.observe(this, Observer {
             when (it) {
-                is SuccessRandom -> {
+                is RandomViewModel.Command.Success -> {
                     Log.e("observe", "" + it.url)
                     Glide.with(this)
                         .load(it.url)
@@ -51,11 +48,11 @@ class RandomActivity : AppCompatActivity(R.layout.activity_random) {
                         })
                         .into(imageView)
                 }
-                is Fail -> {
+                is RandomViewModel.Command.Fail -> {
                     error.visibility = View.VISIBLE
                     progressBar.visibility = View.GONE
                 }
-                is Loading -> {
+                is RandomViewModel.Command.Loading -> {
                     progressBar.visibility = View.VISIBLE
                 }
             }

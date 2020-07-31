@@ -12,10 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.torrentcome.lalala.R
-import com.torrentcome.lalala.base.Empty
-import com.torrentcome.lalala.base.Fail
-import com.torrentcome.lalala.base.Loading
-import com.torrentcome.lalala.base.SuccessSearch
 import com.torrentcome.lalala.dto.Data
 import com.torrentcome.lalala.ui.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,17 +52,17 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
 
         viewModel.searchO.observe(this, Observer {
             when (it) {
-                is SuccessSearch -> {
-                    adapter.list = it.list!!
+                is SearchViewModel.Command.Success -> {
+                    adapter.list = it.list
                     progressBar.visibility = View.GONE
                 }
-                is Fail -> {
+                is SearchViewModel.Command.Fail -> {
                     error.visibility = View.VISIBLE
                     progressBar.visibility = View.GONE
                 }
-                is Loading -> {
+                is SearchViewModel.Command.Loading -> {
                 }
-                is Empty -> {
+                is SearchViewModel.Command.Empty -> {
                 }
             }
         })

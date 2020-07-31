@@ -4,38 +4,45 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.torrentcome.lalala.base.Command
-import com.torrentcome.lalala.base.Fail
-import com.torrentcome.lalala.base.Loading
-import com.torrentcome.lalala.base.SuccessRandom
 import com.torrentcome.lalala.data.Repo
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 class RandomViewModel @ViewModelInject constructor(private val repository: Repo) : ViewModel() {
 
+    sealed class Command {
+        object Start : Command()
+        object Loading : Command()
+        object Fail : Command()
+        data class Success(val url: String = "") : Command()
+    }
+
     // subscription
     private val disposables by lazy { CompositeDisposable() }
 
-    // mutable var
-    private val _random = MutableLiveData<Command?>()
+    // mutable
+    private val _random = MutableLiveData<Command>()
 
-    // visible var
-    val randomO: LiveData<Command?> = _random
+    // visible
+    val randomO: LiveData<Command> = _random
+
+
+    init {
+        _random.postValue(Command.Start)
+    }
 
     fun getRandom() = disposables.add(repository.random()
         .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .doOnSubscribe { _random.value = Loading }
+        .observeOn(Schedulers.io())
+        .doOnSubscribe { _random.postValue(Command.Loading) }
         .doOnError {
             it.printStackTrace()
-            _random.value = Fail
+            _random.postValue(Command.Fail)
         }
         .subscribe { wrapper ->
-            wrapper?.data?.images?.original?.url.let {
-                _random.value = SuccessRandom(it)
+            wrapper?.data?.images?.original?.url?.let {
+                _random.postValue(Command.Success(it))
             }
         })
 

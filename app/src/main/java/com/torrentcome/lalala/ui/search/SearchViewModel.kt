@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jakewharton.rxrelay3.PublishRelay
-import com.torrentcome.lalala.base.*
 import com.torrentcome.lalala.data.Repo
+import com.torrentcome.lalala.dto.Data
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -15,6 +15,13 @@ import java.util.concurrent.TimeUnit
 
 
 class SearchViewModel @ViewModelInject constructor(private val repository: Repo) : ViewModel() {
+
+    sealed class Command {
+        object Loading : Command()
+        object Fail : Command()
+        object Empty : Command()
+        data class Success(val list: List<Data> = emptyList()) : Command()
+    }
 
     // subscription
     private val disposables by lazy { CompositeDisposable() }
@@ -39,13 +46,13 @@ class SearchViewModel @ViewModelInject constructor(private val repository: Repo)
             .switchMap { repository.search(it) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { _search.value = Loading }
-            .doOnError { _search.value = Fail }
+            .doOnSubscribe { _search.value = Command.Loading }
+            .doOnError { _search.value = Command.Fail }
             .subscribe { wrapper ->
                 Log.e("search", "" + wrapper.toString())
                 wrapper?.data?.let {
-                    if (it.isEmpty()) _search.value = Empty
-                    else _search.value = SuccessSearch(it)
+                    if (it.isEmpty()) _search.value = Command.Empty
+                    else _search.value = Command.Success(it)
                 }
             })
     }
