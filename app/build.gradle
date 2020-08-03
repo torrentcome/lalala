@@ -18,11 +18,29 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile file('/Users/cto3543/Documents/Perso/lalala.keystore')
+            storePassword 'g3yb5Gxu'
+            keyAlias 'g3yb5Gxu'
+            keyPassword 'g3yb5Gxu'
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
+        debug {
+        }
+    }
+
+    flavorDimensions "flavor"
+    productFlavors {
+        one {}
     }
 
     compileOptions {
@@ -35,7 +53,10 @@ android {
     }
 
     packagingOptions {
-        exclude 'LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
     }
 }
 
@@ -73,8 +94,9 @@ dependencies {
     implementation 'com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0'
 
     // glide
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation "com.github.bumptech.glide:okhttp3-integration:4.11.0"
+//    kapt 'com.github.bumptech.glide:compiler:4.8.0'
 
     //calligraphy
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
@@ -91,7 +113,4 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:2.0'
-
-
-
 }
