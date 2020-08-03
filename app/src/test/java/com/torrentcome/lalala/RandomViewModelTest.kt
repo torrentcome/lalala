@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth
 import com.torrentcome.lalala.base.RxSchedulerRule
 import com.torrentcome.lalala.base.testObserver
-import com.torrentcome.lalala.data.Repo
+import com.torrentcome.lalala.data.RepoImpl
 import com.torrentcome.lalala.di.ApiModule
 import com.torrentcome.lalala.ui.random.RandomViewModel
 import org.junit.Before
@@ -32,7 +32,7 @@ class RandomViewModelTest {
     fun setup() {
         MockitoAnnotations.initMocks(this)
         val giphyService = ApiModule.provideGiphyService()
-        val repo = Repo(giphyService)
+        val repo = RepoImpl(giphyService)
         classUnderTest = RandomViewModel(repo)
     }
 

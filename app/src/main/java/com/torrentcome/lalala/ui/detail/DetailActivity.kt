@@ -30,16 +30,17 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
         }
 
         val bounceAnimation = AnimationUtils.loadAnimation(this, R.anim.bounce)
+        bounceAnimation.repeatCount = 3
         swipeup.startAnimation(bounceAnimation)
 
         gestureDetectorCompat = GestureDetectorCompat(this, object : OnSwipeListener() {
             override fun onSwipe(direction: Direction?): Boolean {
 
-                if (direction == Direction.right) {
+                if (direction == Direction.RIGHT) {
                     onBackPressed()
                 }
 
-                if (direction == Direction.up) {
+                if (direction == Direction.UP) {
                     val shareIntent = Intent(Intent.ACTION_SEND)
                     shareIntent.type = "text/plain"
                     shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Lalala Share")

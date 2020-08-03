@@ -5,14 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jakewharton.rxrelay3.PublishRelay
-import com.torrentcome.lalala.data.Repo
+import com.torrentcome.lalala.data.RepoImpl
 import com.torrentcome.lalala.dto.Data
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
 
-class SearchViewModel @ViewModelInject constructor(private val repository: Repo) : ViewModel() {
+class SearchViewModel @ViewModelInject constructor(private val repository: RepoImpl) : ViewModel() {
 
     sealed class Command {
         object Start : Command()

@@ -37,7 +37,7 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
 
         adapter = GifListAdapter { gif -> goToDetail(gif) }
         recycler_view.layoutManager =
-                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recycler_view.adapter = adapter
 
         edit.requestFocus()
@@ -57,10 +57,8 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
                     progressBar.visibility = View.GONE
                 }
                 is SearchViewModel.Command.Fail -> {
-
                     error.visibility = View.VISIBLE
                     error_message.text = it.message
-
                     progressBar.visibility = View.GONE
                 }
                 is SearchViewModel.Command.Loading -> {
@@ -69,12 +67,12 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
                 is SearchViewModel.Command.Empty -> {
                     progressBar.visibility = View.GONE
                 }
+                is SearchViewModel.Command.Start -> {
+                }
+                null -> {
+                }
             }
         })
-    }
-
-    fun clickOnFirst() {
-        goToDetail(adapter.list[0])
     }
 
     private fun goToDetail(gif: Data) {

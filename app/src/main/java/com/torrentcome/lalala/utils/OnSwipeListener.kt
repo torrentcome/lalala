@@ -1,12 +1,16 @@
-package com.torrentcome.lalala.utils;
+package com.torrentcome.lalala.utils
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
+import android.view.GestureDetector.SimpleOnGestureListener
+import android.view.MotionEvent
+import kotlin.math.atan2
 
-public class OnSwipeListener extends GestureDetector.SimpleOnGestureListener {
-
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+open class OnSwipeListener : SimpleOnGestureListener() {
+    override fun onFling(
+        e1: MotionEvent,
+        e2: MotionEvent,
+        velocityX: Float,
+        velocityY: Float
+    ): Boolean {
 
         // Grab two events located on the plane at e1=(x1, y1) and e2=(x2, y2)
         // Let e1 be the initial event
@@ -26,22 +30,20 @@ public class OnSwipeListener extends GestureDetector.SimpleOnGestureListener {
         //  C => it's a DOWN swipe
         //  D => it's a LEFT swipe
         //
-
-        float x1 = e1.getX();
-        float y1 = e1.getY();
-
-        float x2 = e2.getX();
-        float y2 = e2.getY();
-
-        Direction direction = getDirection(x1, y1, x2, y2);
-        return onSwipe(direction);
+        val x1 = e1.x
+        val y1 = e1.y
+        val x2 = e2.x
+        val y2 = e2.y
+        val direction =
+            getDirection(x1, y1, x2, y2)
+        return onSwipe(direction)
     }
 
     /**
      * Override this method. The Direction enum will tell you how the user swiped.
      */
-    public boolean onSwipe(Direction direction) {
-        return false;
+    open fun onSwipe(direction: Direction?): Boolean {
+        return false
     }
 
     /**
@@ -54,9 +56,14 @@ public class OnSwipeListener extends GestureDetector.SimpleOnGestureListener {
      * @param y2 the y position of the second point
      * @return the direction
      */
-    public Direction getDirection(float x1, float y1, float x2, float y2) {
-        double angle = getAngle(x1, y1, x2, y2);
-        return Direction.fromAngle(angle);
+    private fun getDirection(
+        x1: Float,
+        y1: Float,
+        x2: Float,
+        y2: Float
+    ): Direction {
+        val angle = getAngle(x1, y1, x2, y2)
+        return Direction.fromAngle(angle)
     }
 
     /**
@@ -70,52 +77,78 @@ public class OnSwipeListener extends GestureDetector.SimpleOnGestureListener {
      * @param y2 the y position of the second point
      * @return the angle between two points
      */
-    public double getAngle(float x1, float y1, float x2, float y2) {
-
-        double rad = Math.atan2(y1 - y2, x2 - x1) + Math.PI;
-        return (rad * 180 / Math.PI + 180) % 360;
+    private fun getAngle(
+        x1: Float,
+        y1: Float,
+        x2: Float,
+        y2: Float
+    ): Double {
+        val rad =
+            atan2(y1 - y2.toDouble(), x2 - x1.toDouble()) + Math.PI
+        return (rad * 180 / Math.PI + 180) % 360
     }
 
+    enum class Direction {
+        UP, DOWN, LEFT, RIGHT;
 
-    public enum Direction {
-        up,
-        down,
-        left,
-        right;
-
-        /**
-         * Returns a direction given an angle.
-         * Directions are defined as follows:
-         * <p>
-         * Up: [45, 135]
-         * Right: [0,45] and [315, 360]
-         * Down: [225, 315]
-         * Left: [135, 225]
-         *
-         * @param angle an angle from 0 to 360 - e
-         * @return the direction of an angle
-         */
-        public static Direction fromAngle(double angle) {
-            if (inRange(angle, 45, 135)) {
-                return Direction.up;
-            } else if (inRange(angle, 0, 45) || inRange(angle, 315, 360)) {
-                return Direction.right;
-            } else if (inRange(angle, 225, 315)) {
-                return Direction.down;
-            } else {
-                return Direction.left;
+        companion object {
+            /**
+             * Returns a direction given an angle.
+             * Directions are defined as follows:
+             *
+             *
+             * Up: [45, 135]
+             * Right: [0,45] and [315, 360]
+             * Down: [225, 315]
+             * Left: [135, 225]
+             *
+             * @param angle an angle from 0 to 360 - e
+             * @return the direction of an angle
+             */
+            fun fromAngle(angle: Double): Direction {
+                return if (inRange(
+                        angle,
+                        45f,
+                        135f
+                    )
+                ) {
+                    UP
+                } else if (inRange(
+                        angle,
+                        0f,
+                        45f
+                    ) || inRange(
+                        angle,
+                        315f,
+                        360f
+                    )
+                ) {
+                    RIGHT
+                } else if (inRange(
+                        angle,
+                        225f,
+                        315f
+                    )
+                ) {
+                    DOWN
+                } else {
+                    LEFT
+                }
             }
 
-        }
-
-        /**
-         * @param angle an angle
-         * @param init  the initial bound
-         * @param end   the final bound
-         * @return returns true if the given angle is in the interval [init, end).
-         */
-        private static boolean inRange(double angle, float init, float end) {
-            return (angle >= init) && (angle < end);
+            /**
+             * @param angle an angle
+             * @param init  the initial bound
+             * @param end   the final bound
+             * @return returns true if the given angle is in the interval [init, end).
+             */
+            private fun inRange(
+                angle: Double,
+                init: Float,
+                end: Float
+            ): Boolean {
+                return angle >= init && angle < end
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.torrentcome.lalala.dto
 
+/** domain **/
+
 // random
 data class RandomObj(val data: Data)
 

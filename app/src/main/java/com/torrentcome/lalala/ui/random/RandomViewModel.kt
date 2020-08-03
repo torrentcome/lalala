@@ -4,12 +4,12 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.torrentcome.lalala.data.Repo
+import com.torrentcome.lalala.data.RepoImpl
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 
-class RandomViewModel @ViewModelInject constructor(private val repository: Repo) : ViewModel() {
+class RandomViewModel @ViewModelInject constructor(private val repository: RepoImpl) : ViewModel() {
 
     sealed class Command {
         object Start : Command()

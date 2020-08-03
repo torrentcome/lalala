@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth
 import com.torrentcome.lalala.base.RxSchedulerRule
 import com.torrentcome.lalala.base.testObserver
-import com.torrentcome.lalala.data.Repo
+import com.torrentcome.lalala.data.RepoImpl
 import com.torrentcome.lalala.di.ApiModule
 import com.torrentcome.lalala.ui.search.SearchViewModel
 import org.junit.Before
@@ -32,14 +32,15 @@ class SearchViewModelTest {
     fun setup() {
         MockitoAnnotations.initMocks(this)
         val giphyService = ApiModule.provideGiphyService()
-        val repo = Repo(giphyService)
+        val repo = RepoImpl(giphyService)
         classUnderTest = SearchViewModel(repo)
     }
 
     @Test
     fun `when init then Command is Start`() {
         val command = classUnderTest.searchO.testObserver()
-        Truth.assert_().that(command.observedValues.first()).isEqualTo(SearchViewModel.Command.Start)
+        Truth.assert_().that(command.observedValues.first())
+            .isEqualTo(SearchViewModel.Command.Start)
     }
 
     @Test
@@ -61,6 +62,10 @@ class SearchViewModelTest {
         classUnderTest.onEditInputStateChanged("q")
         val that = commandList.observedValues
         println(that.toString())
-        Truth.assert_().that((that[2] as SearchViewModel.Command.Success).list.isNotEmpty()).isTrue()
+        Truth.assert_().that(
+            (that[2] as SearchViewModel.Command.Success)
+                .list.isNotEmpty()
+        )
+            .isTrue()
     }
 }
