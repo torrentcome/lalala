@@ -27,7 +27,6 @@ class RandomViewModel @ViewModelInject constructor(private val repository: Repo)
     // visible
     val randomO: LiveData<Command> = _random
 
-
     init {
         _random.postValue(Command.Start)
     }

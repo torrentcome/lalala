@@ -27,6 +27,7 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
 
+    private lateinit var adapter: GifListAdapter
     private val viewModel: SearchViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +35,9 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
 
         viewModel.config()
 
-        val adapter = GifListAdapter { gif -> goToDetail(gif) }
-
+        adapter = GifListAdapter { gif -> goToDetail(gif) }
         recycler_view.layoutManager =
-            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recycler_view.adapter = adapter
 
         edit.requestFocus()
@@ -71,6 +71,10 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
                 }
             }
         })
+    }
+
+    fun clickOnFirst() {
+        goToDetail(adapter.list[0])
     }
 
     private fun goToDetail(gif: Data) {

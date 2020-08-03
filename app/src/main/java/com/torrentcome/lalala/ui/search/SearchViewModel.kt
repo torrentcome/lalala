@@ -1,6 +1,5 @@
 package com.torrentcome.lalala.ui.search
 
-import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,6 +15,7 @@ import java.util.concurrent.TimeUnit
 class SearchViewModel @ViewModelInject constructor(private val repository: Repo) : ViewModel() {
 
     sealed class Command {
+        object Start : Command()
         object Loading : Command()
         class Fail(val message: String) : Command()
         object Empty : Command()
@@ -32,30 +32,34 @@ class SearchViewModel @ViewModelInject constructor(private val repository: Repo)
     // visible var
     val searchO: LiveData<Command?> = _search
 
+    init {
+        _search.postValue(Command.Start)
+    }
+
     fun onEditInputStateChanged(query: String) {
-        Log.e("search", "" + query)
+        println("search = $query")
         if (query.isNotEmpty())
             completePublishSubject.accept(query.trim())
     }
 
     fun config() {
         disposables.add(completePublishSubject
-            .debounce(400, TimeUnit.MILLISECONDS)
-            .distinctUntilChanged()
-            .switchMap {
-                repository.search(it).doOnSubscribe { _search.postValue(Command.Loading) }
-            }
-            .subscribeOn(Schedulers.io())
-            .observeOn(Schedulers.io())
-            .subscribe({ wrapper ->
-                Log.e("search", "" + wrapper.toString())
-                wrapper?.data?.let {
-                    if (it.isEmpty()) _search.postValue(Command.Empty)
-                    else _search.postValue(Command.Success(it))
+                .debounce(400, TimeUnit.MILLISECONDS)
+                .distinctUntilChanged()
+                .switchMap {
+                    repository.search(it).doOnSubscribe { _search.postValue(Command.Loading) }
                 }
-            }, {
-                _search.postValue(Command.Fail(it.message.toString()))
-            })
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .subscribe({ wrapper ->
+                    println("search=" + "" + wrapper.toString())
+                    wrapper?.data?.let {
+                        if (it.isEmpty()) _search.postValue(Command.Empty)
+                        else _search.postValue(Command.Success(it))
+                    }
+                }, {
+                    _search.postValue(Command.Fail(it.message.toString()))
+                })
         )
     }
 
