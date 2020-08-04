@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.torrentcome.lalala.R
-import com.torrentcome.lalala.dto.Data
+import com.torrentcome.lalala.domain.dto.Data
 import com.torrentcome.lalala.ui.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.inflationx.viewpump.ViewPumpContextWrapper

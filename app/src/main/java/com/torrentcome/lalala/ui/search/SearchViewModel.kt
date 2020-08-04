@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jakewharton.rxrelay3.PublishRelay
 import com.torrentcome.lalala.data.RepoImpl
-import com.torrentcome.lalala.dto.Data
+import com.torrentcome.lalala.domain.dto.Data
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit

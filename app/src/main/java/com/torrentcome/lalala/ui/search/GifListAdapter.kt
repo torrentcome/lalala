@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.torrentcome.lalala.R
-import com.torrentcome.lalala.dto.Data
+import com.torrentcome.lalala.domain.dto.Data
 import kotlinx.android.synthetic.main.item_gif.view.*
 import kotlin.properties.Delegates
 

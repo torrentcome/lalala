@@ -1,6 +1,4 @@
-package com.torrentcome.lalala.dto
-
-/** domain **/
+package com.torrentcome.lalala.domain.dto
 
 // random
 data class RandomObj(val data: Data)

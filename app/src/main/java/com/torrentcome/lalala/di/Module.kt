@@ -1,6 +1,6 @@
 package com.torrentcome.lalala.di
 
-import com.torrentcome.lalala.api.GiphyService
+import com.torrentcome.lalala.data.api.GiphyService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

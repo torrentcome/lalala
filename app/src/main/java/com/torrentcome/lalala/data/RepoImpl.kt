@@ -1,19 +1,11 @@
 package com.torrentcome.lalala.data
 
-import com.torrentcome.lalala.api.GiphyService
-import com.torrentcome.lalala.dto.RandomObj
-import com.torrentcome.lalala.dto.SearchObj
-import io.reactivex.rxjava3.core.Observable
+import com.torrentcome.lalala.data.api.GiphyService
+import com.torrentcome.lalala.domain.Repo
 import javax.inject.Inject
 import javax.inject.Singleton
 
 const val API_KEY = "zIMaCOfVT6KGmPeOb0LBvkFPiPDLhGc6"
-
-/** domain **/
-interface Repo {
-    fun random(): Observable<RandomObj?>
-    fun search(query: String): Observable<SearchObj?>
-}
 
 @Singleton
 class RepoImpl @Inject constructor(private var giphyService: GiphyService) : Repo {

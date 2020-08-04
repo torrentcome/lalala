@@ -38,9 +38,9 @@
 # SPECIFIC OPTIONS
 
 # keep members of our model classes
--keepclassmembers class com.torrentcome.lalala.dto.* { *; }
+-keepclassmembers class com.torrentcome.lalala.domain.dto.* { *; }
 
--keep public enum com.torrentcome.lalala.dto.*$** {
+-keep public enum com.torrentcome.lalala.domain.dto.*$** {
     **[] $VALUES;
     public *;
 }
