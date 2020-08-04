@@ -2,7 +2,7 @@
 A sample android app that shows how to use ViewModels, LiveData with RxJava3 & Hilt, in Kotlin by "Clean Architecture".
 
 ### Implemented by
-The following diagram shows the structure of this project with 3 layers:
+The structure of this project with 3 layers:
 - ui
 - domain
 - data
@@ -13,12 +13,13 @@ The following diagram shows the structure of this project with 3 layers:
 2. ViewModel executes internal logic.
 3. Internal logic combines data from Repo.
 4. The Repo is tied with the data (remote here).
-5. Information flows back to the UI.
+5. Information flows back to the UI by LiveData.
 
 ### Dependencies
 
 ```gradle
     // androidx ui
+    // androidx mvvm
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
 
